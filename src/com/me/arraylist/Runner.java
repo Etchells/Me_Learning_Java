@@ -30,6 +30,8 @@ public class Runner {
 //			System.out.println(shoppingList[i]);
 //		}
 		
+//		for(String x: shoppingList.split(" ")) System.out.println(x);
+		
 		for(String tempVal: shoppingList) {
 			System.out.println(tempVal);
 		}
