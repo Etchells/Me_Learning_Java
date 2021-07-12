@@ -1,14 +1,12 @@
 package com.me.constructors_challenge;
 
-import java.util.ArrayList;
-
 
 public class Runner {
 
 
 	public static void main(String[] args) {
 		
-		// Instance of Person
+		// Instance of Person (Instantiate) 
 		Person p = new Person();
 		
 		
@@ -32,9 +30,14 @@ public class Runner {
 //		listOfPerson.add(rita);
 		p.addToList(glenn);
 		
-		
+		// Printing ArrayList
 		p.printAll();
 		
+		// Create a method that can search for a specific Person by their name.
+		p.search("Glenn Etchells");
+		
+		// get glenn's age
+		System.out.println(glenn.getAge());
 		// Printing ArrayList
 //		for (Person aPerson:listOfPerson) {
 //			System.out.println(aPerson);

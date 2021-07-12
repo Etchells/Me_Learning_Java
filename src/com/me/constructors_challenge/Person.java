@@ -66,12 +66,14 @@ public class Person {
 	public void setJobTitle(String jobTitle) {
 		this.jobTitle = jobTitle;
 	}
-
+////////////////////////////////////////////////////////////////////////
+	
+	// Adding Instances to ArrayList
 	public void addToList(Person p) {
 		listOfPerson.add(p);
-		System.out.println("Person add " + p);
+		System.out.println("Person has been added with values " + p);
 	}
-	
+	// Create a method that can search for a specific Person by their name.
 	public void search(String name) {
 		for (Person tempPerson : listOfPerson) {
 			if(tempPerson.getName()==name) {
@@ -79,8 +81,12 @@ public class Person {
 			}
 		}
 	}
+	// Printing ArrayList
 	public void printAll() {
-		for (Person p : listOfPeople)}
+		for (Person p : listOfPerson) {
+			System.out.println(p);
+		}
+	}
 	
 	
 }
