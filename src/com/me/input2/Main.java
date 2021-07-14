@@ -2,28 +2,29 @@ package com.me.input2;
 
 import java.util.Scanner;
 
+import CalculatorTask.DivideByZeroException;
+
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws DivideByZeroException {
 
-			Message.welcomeMsg();
+		Scanner keyboard = new Scanner(System.in);
 
-			Calculations.calculation();
-//
-//		Scanner keyboard = new Scanner(System.in);
-//
-//		String answer;
-//		do {
-//			start();
-//			System.out.println("do you wish to repeat? Yes or No");
-//			answer = keyboard.next();
-//		} while (answer.equalsIgnoreCase("Yes"));
+		String answer;
+//--------------------------------------------------------------------------------------------------		
+		do {										//Do the following While return answer equals Yes
 
-	}
+			Message.welcomeMsg();					//Pulls welcome message from Message class
+			Calculations.calculation();				//Pulls calculation method from Calculation class
 
-	public static void start() {
-//		Message.welcomeMsg();
-		Calculations.calculation();
+			System.out.println("Would you like to play another game? Yes or No.");
+			answer = keyboard.next();
+			
+		} while (answer.equalsIgnoreCase("Yes"));	//Checks user input for "Yes"
+				
+		keyboard.close();							//If not Yes then close keyboard scanner (Resource Leak)
+		Message.finishMsg();						//Pulls finish message from Message class
+
 	}
 
 }

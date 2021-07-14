@@ -2,16 +2,20 @@ package com.me.input2;
 
 import java.util.Scanner;
 
+import CalculatorTask.DivideByZeroException;
+
 public class Calculations {
 
-	public static void calculation() {
+	public static void calculation() throws DivideByZeroException{
 
 		Scanner menuOption = new Scanner(System.in);
 		int myOption = menuOption.nextInt();
 
 		switch (myOption) {
+		
+		
 		case 1:
-
+			
 			System.out.println("You have chosen to: Add two numbers");
 			Scanner scan = new Scanner(System.in);
 			System.out.println("Please provide your first number:");
@@ -22,7 +26,7 @@ public class Calculations {
 			break;
 
 		case 2:
-
+			
 			System.out.println("You have chosen to: Minus two numbers,");
 			Scanner scan1 = new Scanner(System.in);
 			System.out.println("Please provide your first number:");
@@ -33,7 +37,7 @@ public class Calculations {
 			break;
 
 		case 3:
-
+			
 			System.out.println("You have chosen to: multiply two numbers");
 			Scanner scan2 = new Scanner(System.in);
 			System.out.println("Please provide your first number:");
@@ -44,21 +48,30 @@ public class Calculations {
 			break;
 
 		case 4:
-
+			
 			System.out.println("You have chosen to: Divide two numbers");
 			Scanner scan3 = new Scanner(System.in);
 			System.out.println("Please provide your first number:");
 			double number7 = scan3.nextDouble();
 			System.out.println("Please provide your second number:");
 			double number8 = scan3.nextDouble();
+//			----------------------------------------------------------------
+			if(number8==0) {
+				throw new DivideByZeroException("HEY!! You can't Divide by zero!");
+			}
+			
+//			----------------------------------------------------------------		
 			System.out.println("The answer is " + (number7 / number8));
 			break;
-
+			
 		default:
+			
 			System.out.println("Computer said no!");
+			
 			break;
+			
 		}
-		menuOption.close();
+//		menuOption.close();
 	}
 
 }

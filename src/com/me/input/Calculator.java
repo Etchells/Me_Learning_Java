@@ -2,27 +2,39 @@ package com.me.input;
 
 import java.util.Scanner;
 
+import CalculatorTask.DivideByZeroException;
+
 public class Calculator {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws DivideByZeroException{
+		Scanner keyboard = new Scanner(System.in);
 
+		String answer;
+		do {
+		
 		System.out.println("Welcome to the best Calculator in the world!!\nPlease select one of the following options......");
 		System.out.println("Option 1: to add two numbers");
 		System.out.println("Option 2: to minus two numbers");
 		System.out.println("Option 3: to multiply two numbers");
 		System.out.println("Option 4: to divide two numbers");
-
+		
+		
 		Scanner menuOption = new Scanner(System.in);
 		int myOption = menuOption.nextInt();
 
 		Calculator c = new Calculator();
 		c.option(myOption);
 
-		menuOption.close();
+//		menuOption.close();
+		
+		System.out.println("Do you wish to repeat? Yes or No");
+		answer = keyboard.next();
+		} while (answer.equalsIgnoreCase("Yes"));
+		
 	}
 
 //	---------------------------------------------------------
-	public void option(int myOption) {
+	public void option(int myOption) throws DivideByZeroException {
 		int option = myOption;
 
 		switch (option) {
@@ -64,8 +76,15 @@ public class Calculator {
 			double number7 = scan3.nextDouble();
 			System.out.println("Please provide your second number:");
 			double number8 = scan3.nextDouble();
+//			----------------------------------------------------------------
+			if(number8==0) {
+				throw new DivideByZeroException("HEY!! You can't Divide by zero!");
+			}
+			
+//			----------------------------------------------------------------				
 			System.out.println("The answer is " + (number7 / number8));
 			break;
+
 
 		default:
 			System.out.println("Invaild option. Goodbye");
